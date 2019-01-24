@@ -21,10 +21,10 @@ try {
 }
 ?>
 <?php require "templates/header.php"; ?>
-        
-<h2>Update users</h2>
 
-<table>
+<h2>Update users</h2>
+<div class="table-responsive">
+<table class="table table-hover">
     <thead>
         <tr>
             <th>#</th>
@@ -38,21 +38,38 @@ try {
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($result as $row) : ?>
+        <?php foreach ($result as $row) : ?>
         <tr>
-            <td><?php echo escape($row["id"]); ?></td>
-            <td><?php echo escape($row["firstname"]); ?></td>
-            <td><?php echo escape($row["lastname"]); ?></td>
-            <td><?php echo escape($row["email"]); ?></td>
-            <td><?php echo escape($row["age"]); ?></td>
-            <td><?php echo escape($row["location"]); ?></td>
-            <td><?php echo escape($row["date"]); ?> </td>
-            <td><a href="update-single.php?id=<?php echo escape($row["id"]); ?>">Edit</a></td>
+            <td>
+                <?php echo escape($row["id"]); ?>
+            </td>
+            <td>
+                <?php echo escape($row["firstname"]); ?>
+            </td>
+            <td>
+                <?php echo escape($row["lastname"]); ?>
+            </td>
+            <td>
+                <?php echo escape($row["email"]); ?>
+            </td>
+            <td>
+                <?php echo escape($row["age"]); ?>
+            </td>
+            <td>
+                <?php echo escape($row["location"]); ?>
+            </td>
+            <td>
+                <?php echo escape($row["date"]); ?>
+            </td>
+            <td><a class="btn btn-warning" href="update-single.php?id=<?php echo escape($row["id"]); ?>">Edit</a></td>
         </tr>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
     </tbody>
 </table>
+</div>
+<div class="form-group">
+    <a class="btn btn-outline-info" href="index.php">Back to home</a>
+</div>
 
-<a href="index.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>

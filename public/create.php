@@ -39,27 +39,41 @@ if (isset($_POST['submit'])) {
 ?>
 <?php require "templates/header.php"; ?>
 
-  <?php if (isset($_POST['submit']) && $statement) : ?>
-    <blockquote><?php echo escape($_POST['firstname']); ?> successfully added.</blockquote>
-  <?php endif; ?>
+<?php if (isset($_POST['submit']) && $statement) : ?>
+<span class='badge badge-success'> <?php echo escape($_POST['firstname']); ?> successfully added.</span>
+<?php endif; ?>
 
-  <h2>Add a user</h2>
+<h2>Add a user</h2>
 
-  <form method="post">
+<form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-    <label for="firstname">First Name</label>
-    <input type="text" name="firstname" id="firstname">
-    <label for="lastname">Last Name</label>
-    <input type="text" name="lastname" id="lastname">
-    <label for="email">Email Address</label>
-    <input type="text" name="email" id="email">
-    <label for="age">Age</label>
-    <input type="text" name="age" id="age">
-    <label for="location">Location</label>
-    <input type="text" name="location" id="location">
-    <input type="submit" name="submit" value="Submit">
-  </form>
+    <div class="form-group">
+        <label for="firstname">Firstname</label>
+        <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Enter Firstname">
+    </div>
+    <div class="form-group">
+        <label for="lastname">Lastname</label>
+        <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter Lastname">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <textarea class="form-control" name="age" id="age" placeholder="Enter Address"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="location">Location</label>
+        <textarea class="form-control" name="location" id="location" placeholder="Enter Location"></textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+    </div>
+</form>
+<div class="form-group">
+    <a class="btn btn-outline-info" href="index.php">Back to home</a>
+</div>
 
-  <a href="index.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>

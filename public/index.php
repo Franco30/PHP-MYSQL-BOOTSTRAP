@@ -1,10 +1,12 @@
 <?php include "templates/header.php"; ?>
 
-<ul>
-	<li><a href="create.php"><strong>Create</strong></a> - add a user</li>
-	<li><a href="read.php"><strong>Read</strong></a> - find a user</li>
-	<li><a href="update.php"><strong>Update</strong></a> - edit a user</li>
-	<li><a href="delete.php"><strong>Delete</strong></a> - delete a user</li>
-</ul>
-
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action disabled active">
+    Simple Database App
+  </a>
+  <a href="create.php" class="list-group-item list-group-item-action">Create - add a user</a>
+  <a href="read.php" class="list-group-item list-group-item-action">Read - find a user</a>
+  <a href="update.php" class="list-group-item list-group-item-action">Update - edit a user</a>
+  <a href="delete.php" class="list-group-item list-group-item-action">Delete - delete a user</a>
+</div>
 <?php include "templates/footer.php"; ?>

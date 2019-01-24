@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
 <?php require "templates/header.php"; ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
-	<blockquote><?php echo escape($_POST['firstname']); ?> successfully updated.</blockquote>
+<span class='badge badge-success'> <?php echo escape($_POST['firstname']); ?> successfully updated.</span>
 <?php endif; ?>
 
 <h2>Edit a user</h2>
@@ -73,12 +73,19 @@ if (isset($_GET['id'])) {
 <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
     <?php foreach ($user as $key => $value) : ?>
-      <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-	    <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
-    <?php endforeach; ?> 
-    <input type="submit" name="submit" value="Submit">
+    <div class="form-group">
+        <label for="<?php echo $key; ?>">
+            <?php echo ucfirst($key); ?></label>
+        <input type="text" class="form-control" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key==='id' ? 'readonly' : null); ?>>
+    </div>
+    <?php endforeach; ?>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+    </div>
 </form>
 
-<a href="index.php">Back to home</a>
+<div class="form-group">
+    <a class="btn btn-outline-info" href="index.php">Back to home</a>
+</div>
 
 <?php require "templates/footer.php"; ?>
